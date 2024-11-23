@@ -22,8 +22,15 @@ public class Ball : MonoBehaviour
             //2. sets ball as dynamic (physics)
             rb.isKinematic = false;
             //3. applies impulse
-            rb.AddForce(new Vector2(1, 1).normalized * 10, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(1, 1).normalized * 6, ForceMode2D.Impulse);
 
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Block"))
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
