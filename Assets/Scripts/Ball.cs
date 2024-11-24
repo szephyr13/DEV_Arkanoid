@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] private GameObject pala;
+    [SerializeField] private GameObject paddle;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI lifeText;
     [SerializeField] private GameObject gameOverText;
@@ -46,7 +46,7 @@ public class Ball : MonoBehaviour
             //2. sets ball as dynamic (physics)
             rb.isKinematic = false;
             //3. applies impulse
-            rb.AddForce(new Vector2(1, 1).normalized * 6, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(Random.Range(-1f, 1f), 1).normalized * 6, ForceMode2D.Impulse);
             //4. now you cannot shoot
             canIShoot = false;
         }
@@ -90,7 +90,7 @@ public class Ball : MonoBehaviour
         //1 . set as kinematic to supress physics
         rb.isKinematic = true;
         //2. parent the ball
-        transform.SetParent(pala.transform);
+        transform.SetParent(paddle.transform);
         //3. set position of the ball
         transform.localPosition = new Vector3(0, 1, 0);
         //4. you can shoot again
