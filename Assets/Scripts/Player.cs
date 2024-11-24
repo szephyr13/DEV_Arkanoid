@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         transform.Translate(new Vector3(inputH, 0, 0) * speed * Time.deltaTime);
 
         //2. delimited movement (boundaries)
-        float xDelimited = Mathf.Clamp(transform.position.x, -4.25f, 4.49f);
+        float xDelimited = Mathf.Clamp(transform.position.x, -4.45f, 4.15f);
         transform.position = new Vector3(xDelimited, transform.position.y, transform.position.z);
 
     }
